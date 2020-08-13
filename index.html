@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {
+        text-align: center;
+    }
+    body {
+        background-image: url('bg.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .button {
+        border: none;
+        border-radius: 8px;
+        color: #000000;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .aboutButton {
+        position: absolute;
+        top: 10%;
+        left: 46%;
+        background-color: SlateGray;
+        color: black;
+        border: 2px solid #596673
+    }
+    .aboutButton:hover {
+        background-color: #8c99a6;
+        color: black;
+    }
+
+    .tab {
+        overflow: hidden;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: absolute;
+        border: 2px solid #495158;
+        outline: none;
+        color: #dbdbdb;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    .tab button:hover {
+      background-color: #8c99a6;
+    }
+
+    .tab button.active {
+      background-color: #8c99a6;
+    }
+
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+    }
+
+</style>
+
+<head>
+    <title>Simple Rust Calculator</title>
+</head>
+
+<body style="background-color:SlateGray;">
+    <h1 style="color: #bebebe;font-size:35px;font-family: Arial;">Rust Calculator</h1>
+
+    <div class="tab">
+        <button class="tablink" onclick="openPage('about', this, 'SlateGray')">About</button>
+        <button class="tablink" onclick="openPage('home', this, 'SlateGray')" id="defaultOpen">Home</button>
+        <button class="tablink" onclick="openPage('changelog', this, 'SlateGray')">Changelog</button>
+        <button class="tablink" onclick="openPage('download', this, 'SlateGray')">Download</button>
+    </div>
+
+    <div id="about" class="tabcontent">
+        <h3 style="color: #bebebe;font-size:30px;font-family:arial">About</h3>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">This is a simple calculator for the game called Rust.</p>
+        
+        <h4 style="color: #bebebe;font-size:20px;font-family:arial">Why did i make it?</h4>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">I started making this calculator because i wasn't able to find any other decay calculator online.</p>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">While i was making it i was thinking what could i add and thought that furnace calculator would be useful so i added that aswell.</p>
+        
+        <h4 style="color: #bebebe;font-size:20px;font-family:arial">How long did it take to make this calculator?</h4>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">It took me about 1 day to get most of the calculator working.</p>
+
+        <h4 style="color: #bebebe;font-size:20px;font-family:arial">This is for the folks that are sceptical about .exe files</h4>
+        <a href="https://www.hybrid-analysis.com/sample/42064bfaf27c459b2748c48d2e0cb6b963f2eb99e7782559ea090b010b63f8c6" style="color: #33adff">Hybrid-Analysis Virus Scan</a>
+
+        <h3 style="color: #bebebe;font-size:25px;font-family:arial">Credits</h3>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">Jeesus Krisostoomus#7737 - Developer</p>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">Dubys#3047 - Some quick maths</p>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">https://www.twitch.tv/LucTheSloth - Decay Base</p>
+
+    </div>
+    <div id="download" class="tabcontent">
+        <h3 style="color: #bebebe;font-size:30px;font-family:arial">Download</h3>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">Click <a href="Rust_Calculator.exe" style="color: #33adff;" download="Simple Rust Calculator">here</a> to download the calculator.</p>
+        <h5 style="color: #b32929;font-size:13px;font-family:arial">Read before using.</h5>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">If you run the program and it says that this program is from an unknown publisher then it is because i have never made/published a program and this program isn't signed. Which may lead AV engines to detect it as a malware even though it is not.</p>
+    </div>
+    <div id="home" class="tabcontent">
+        <h3 style="color: #bebebe;font-size:30px;font-family:arial">Home</h3>
+        <p style="color: #bebebe;font-size:13px;font-family:arial">You have not yet selected a tab to view at. Click at a tab above to view it.</p>
+    </div>
+    <div id="changelog" class="tabcontent">
+        <h3 style="color: #bebebe;font-size:30px;font-family:arial">Changelog</h2>
+        <h4 style="color: #bebebe;font-size:15px;font-family:arial">Prefixes</h4>
+        <p style="color: #bebebe;font-size:13px;font-family:arial;">[+] Added<br>[/] Changed/Fixed<br>[-] Removed</p>
+        <h4 style="color: #bebebe;font-size:13px;font-family:arial">Version: 1.0</h4>
+        <p style="color: #bebebe;font-size:13px;font-family:arial;">[+] Current Basic Website<br>[+] Smelting Calculator<br>[+] Decay Calculator<br>[+] Info tab<br>[+] Basic Icon</p>
+    </div>
+
+    <!--<button class="button aboutButton" onclick="alert('This is about button')">About</button> #About button in the middle of the screen almost not really-->
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+          }
+          document.getElementById(pageName).style.display = "block";
+          elmnt.style.backgroundColor = color;
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+</html>
