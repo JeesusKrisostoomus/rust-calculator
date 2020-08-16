@@ -2,8 +2,12 @@
 <html lang="en">
     
 <style>
-    h1 {text-align: center;}
-    p {text-align: center;}
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
     div {
         text-align: center;
     }
@@ -13,7 +17,8 @@
         background-attachment: fixed;
         background-size: cover;
     }
-    .button {
+    .button 
+    {
         border: none;
         border-radius: 8px;
         color: #000000;
@@ -25,7 +30,8 @@
         margin: 4px 2px;
         cursor: pointer;
     }
-    .aboutButton {
+    .aboutButton 
+    {
         position: absolute;
         top: 10%;
         left: 46%;
@@ -33,16 +39,19 @@
         color: black;
         border: 2px solid #596673
     }
-    .aboutButton:hover {
+    .aboutButton:hover 
+    {
         background-color: #8c99a6;
         color: black;
     }
 
-    .tab {
+    .tab 
+    {
         overflow: hidden;
     }
 
-    .tab button {
+    .tab button 
+    {
         background-color: inherit;
         float: absolute;
         border: 2px solid #495158;
@@ -54,17 +63,41 @@
         font-size: 17px;
     }
 
-    .tab button:hover {
+    .tab button:hover 
+    {
       background-color: #8c99a6;
     }
 
-    .tab button.active {
+    .tab button.active 
+    {
       background-color: #8c99a6;
     }
 
-    .tabcontent {
+    .tabcontent 
+    {
         display: none;
         padding: 6px 12px;
+    }
+
+    .content 
+    {
+      padding: 0 6px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    .collapsible 
+    {
+      background-color: #8c99a600;
+      color: #444;
+      cursor: pointer;
+      padding: 6px;
+      width: 100%;
+      border: none;
+      text-align: center;
+      outline: none;
+      font-size: 15px;
     }
 
 </style>
@@ -143,6 +176,9 @@
             <div class="column">
               <img src="Screen2.png" alt="Screenshot_2" style="width:25%">
             </div>
+            <div class="column">
+                <img src="Screen3.png" alt="Screenshot_2" style="width:25%">
+            </div>
         </div>
     </div>
 
@@ -155,11 +191,22 @@
         <h3 style="color: #bebebe;font-size:30px;font-family:arial">Changelog</h2>
         <h4 style="color: #bebebe;font-size:15px;font-family:arial">Prefixes</h4>
         <p style="color: #bebebe;font-size:13px;font-family:arial;">[+] Added<br>[/] Changed/Fixed<br>[-] Removed</p>
-        <h3></h3>
-        <h4 style="color: #bebebe;font-size:13px;font-family:arial">Version: 1.1</h4>
-        <p style="color: #bebebe;font-size:13px;font-family:arial;">[/] Fixed Crude Oil Calculations (hopefuly)</p>
-        <h4 style="color: #bebebe;font-size:13px;font-family:arial">Version: 1.0</h4>
-        <p style="color: #bebebe;font-size:13px;font-family:arial;">[+] Current Basic Website<br>[+] Smelting Calculator<br>[+] Decay Calculator<br>[+] Info tab<br>[+] Basic Icon</p>
+        <button type="button" style="color: #bebebe;font-size:15px;font-family:arial" class="collapsible"><b>Version 1.2 (Click Me)</b></button>
+        <div class="content">
+            <h2 style="color: #bebebe;font-size:13px;font-family:arial"><br><br>Version 1.2 Changelog</h2>
+            <p style="color: #bebebe;font-size:13px;font-family:arial;">[+] Very Basic Crafting Calculator<br>[+] Some Items To Crafting Calculator<br><br><b>Update Release Date: 17.August.2020</b><br><br></p>
+        </div>
+        <button type="button" style="color: #bebebe;font-size:15px;font-family:arial" class="collapsible"><b>Version 1.1 (Click Me)</b></button>
+        <div class="content">
+            <h2 style="color: #bebebe;font-size:13px;font-family:arial"><br><br><b>Version 1.1 Changelog</b></h2>
+            <p style="color: #bebebe;font-size:13px;font-family:arial;">[+] Current Basic Website<br>[+] Smelting Calculator<br>[+] Decay Calculator<br>[+] Info tab<br>[+] Basic Icon<br><br><b>Update Release Date: 13.August.2020</b><br><br></p>
+        </div>
+        <button type="button" style="color: #bebebe;font-size:15px;font-family:arial" class="collapsible"><b>Version 1.0 (Click Me)</b></button>
+        <div class="content">
+            <h2 style="color: #bebebe;font-size:13px;font-family:arial"><br><br>Version 1.0 Changelog</h2>
+            <p style="color: #bebebe;font-size:13px;font-family:arial;">[/] Fixed Crude Oil Calculations (hopefuly)<br><br><b>Update Release Date: 14.August.2020</b><br><br></p>
+        </div>
+
     </div>
 
 
@@ -182,6 +229,23 @@
           elmnt.style.backgroundColor = color;
         }
         document.getElementById("defaultOpen").click();
+
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
+          });
+        }
+
     </script>
 
 </body>
